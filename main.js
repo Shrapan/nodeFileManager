@@ -29,13 +29,14 @@ function treeFn(dirpath)
     //if path is not given will check for that
     if(dirpath==undefined)
     {
-        console.log("kindly enter the path");
+        treeHelper(process.cwd(),"");
        
     }
     else{
         let doesExist=fs.existsSync(dirpath);
         if(doesExist)
         {
+            // console.log("enter valid path");
          treeHelper(dirpath,"");
         }
         else
@@ -73,7 +74,8 @@ function organiseFn(dirpath)
     //if path is not given will check for that
     if(path==undefined)
     {
-        console.log("kindly enter the path");
+        // console.log("kindly enter the path");
+        destPath=process.cwd();
     }
     else{
         let doesExist=fs.existsSync(dirpath);
