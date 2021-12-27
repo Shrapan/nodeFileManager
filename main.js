@@ -25,5 +25,9 @@ function organiseFn(path)
 }
 function help()
 {
-    console.log(" help implementation");
+    console.log(` List of All the command:
+                    node fileName.ext tree "dirpath"
+                    node fileName.ext organise "dirpath"
+                    node fileName.ext help
+                    `);
 }
