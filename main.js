@@ -21,8 +21,11 @@ function treeFn(dirpath)
 {
     console.log("Tree implementation");
 }
+
+
 function organiseFn(dirpath)
 {
+    let destPath;
     //if path is not given will check for that
     if(path==undefined)
     {
@@ -32,7 +35,7 @@ function organiseFn(dirpath)
         let doesExist=fs.existsSync(dirpath);
         if(doesExist)
         {
-            let destPath=path.join(dirpath,"organized_files");
+            destPath=path.join(dirpath,"organized_files");
            if(fs.existsSync(destPath)==false){
 
                fs.mkdirSync(destPath);
@@ -42,7 +45,25 @@ function organiseFn(dirpath)
         }
     }
 
+    organiseHelper(dirpath,destPath);
 }
+function organiseHelper(src,dest)
+{
+let childName=fs.readdirSync(src);
+// console.log(childName);
+for(let i=0;i<childName.length;i++)
+{
+    let childAdd=path.join(src,childName[i]);
+    let isFile=fs.lstatSync(childAdd).isFile();
+    if(isFile){
+console.log(childName[i]);
+    } 
+}
+{
+
+}
+}
+
 
 
 //help implemented
