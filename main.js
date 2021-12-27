@@ -33,7 +33,11 @@ function organiseFn(dirpath)
         if(doesExist)
         {
             let destPath=path.join(dirpath,"organized_files");
-            fs.mkdirSync(destPath);
+           if(fs.existsSync(destPath)==false){
+
+               fs.mkdirSync(destPath);
+           }
+           
             //E:\PC my path
         }
     }
