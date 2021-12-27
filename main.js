@@ -1,3 +1,5 @@
+let fs=require("fs");
+let path=require("path");
 let inputArr =process.argv.slice(2);
 let command=inputArr[0];
 switch(command)
@@ -15,16 +17,25 @@ switch(command)
         console.log("Enter Valid Input");    
 }
 
-function treeFn(path)
+function treeFn(dirpath)
 {
     console.log("Tree implementation");
 }
-function organiseFn(path)
+function organiseFn(dirpath)
 {
     //if path is not given will check for that
     if(path==undefined)
     {
         console.log("kindly enter the path");
+    }
+    else{
+        let doesExist=fs.existsSync(dirpath);
+        if(doesExist)
+        {
+            let destPath=path.join(dirpath,"organized_files");
+            fs.mkdirSync(destPath);
+            //E:\PC my path
+        }
     }
 
 }
