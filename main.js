@@ -21,8 +21,16 @@ function treeFn(path)
 }
 function organiseFn(path)
 {
-    console.log("Organise implementation");
+    //if path is not given will check for that
+    if(path==undefined)
+    {
+        console.log("kindly enter the path");
+    }
+
 }
+
+
+//help implemented
 function help()
 {
     console.log(` List of All the command:
