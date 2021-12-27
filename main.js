@@ -64,10 +64,10 @@ for(let i=0;i<childName.length;i++)
     let isFile=fs.lstatSync(childAdd).isFile();
     if(isFile)
             {
-              // console.log(childName[i]);
-            //   console.log(path.extname(childName[i]));
+             
                 let category=getCategory(childName[i]);
-                console.log(childName[i],"i belong to --->",category)
+                // console.log(childName[i],"i belong to --->",category)
+                sendFiles(childAdd,dest,category);
             } 
     }
 
@@ -89,6 +89,19 @@ function getCategory(name)
     return "other";
 }
 
+function sendFiles(childAdd,dest,category)
+{
+    let categoryPath=path.join(dest,category);
+    if(fs.existsSync(categoryPath)==false)
+    {
+        fs.mkdirSync(categoryPath);
+    }
+    let filename=path.basename(childAdd);
+    let destFilePath=path.join(categoryPath,filename);
+    fs.copyFileSync(childAdd,destFilePath);
+    fs.unlinkSync(childAdd);
+    console.log(filename,"copied to ",category)
+}
 
 //help implemented
 function help()
